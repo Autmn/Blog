@@ -2,10 +2,58 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Autmn个人技术博客</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Autmn</title>
+	<script type="text/javascript" src="public/javascript/responsive-nav.js"></script>
+	<link rel="stylesheet" type="text/css" href="public/css/common.css">
+	<link rel="stylesheet" type="text/css" href="public/css/responsive-nav.css">
 </head>
 <body>
-	Autmn个人技术
-	hello world
+	<div id="nav">
+		<ul>
+			<li><a href="#" title="new">》最新内容</a></li>
+			<li><a href="#" title="html">》HTML</a>
+				<ul class="article-list">
+					<li><a href="#">html5 新增的14项特性</a></li>
+				</ul>
+			</li>
+			<li><a href="#" title="css">》CSS</a>
+				<ul class="article-list">
+					<li></li>
+				</ul>
+			</li>
+			<li><a href="#" title="javascript">》JavaScript</a>
+				<ul class="article-list">
+					<li></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="container">
+		<a href="#nav" class="nav-toggle">
+			<span></span>
+			<span></span>
+			<span></span>
+		</a>
+		<div id="article">
+			
+		</div>
+	</div>
+	<script>
+	  var navigation = responsiveNav("#nav", { // Selector: The ID of the wrapper
+	    animate: true, // Boolean: 是否启动CSS过渡效果（transitions）， true 或 false
+	    transition: 400, // Integer: 过渡效果的执行速度，以毫秒（millisecond）为单位
+	    label: "Menu", // String: Label for the navigation toggle
+	    insert: "after", // String: Insert the toggle before or after the navigation
+	    customToggle: ".nav-toggle", // Selector: Specify the ID of a custom toggle
+	    openPos: "relative", // String: Position of the opened nav, relative or static
+	    jsClass: "js", // String: 'JS enabled' class which is added to <html> el
+	    debug: false, // Boolean: Log debug messages to console, true 或 false
+	    init: function(){}, // Function: Init callback
+	    open: function(){}, // Function: Open callback
+	    close: function(){} // Function: Close callback
+	  });
+	</script>
 </body>
 </html>
