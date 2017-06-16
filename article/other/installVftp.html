@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CentOS下搭建vftp</title>
+</head>
+<body>
+	<article>
+		<h2>在CentOS下搭建一个ftp服务器</h2>
+		<ul>
+			<li>使用yum 安装ftp
+				<p>yum -y install ftp vsftpd</p>
+			</li>
+			<li>进入ftp配置文件
+				<p>cd /etc/vsftpd</p>
+			</li>
+			<li>备份ftp配置文件
+				<p>cp vsftpd.conf vsftpd.conf.origin</p>
+			</li>
+			<li>关闭匿名登录
+				<p>vim vsftpd.conf<br>将#anonymous_enable=NO的#去掉然后保存退出（：wq)</p>				
+			</li>
+			<li>创建一个ftp文件夹
+				<p>mkdir ftpFile</p>
+			</li>
+			<li>使用adduser命令创建ftp用户
+				<p>adduser -d /ftpFile -g ftp ftpuser1<br><br>
+					<span>说明：</span><br>
+					-d ftp文件夹名（用户上传的文件将保到此文件夹)<br>
+					-g 用户名所在的用户组 <br>
+					ftpuse1 为本次创建的用户名
+				</p>
+			</li>
+			<li>为用户名设置密码
+				passwd <你的密码>
+			</li>
+			<li>设置vsftpd开机启动
+				<p>systemctl enable vsftpd</p>
+			</li>
+			<li>重启ftp
+				<p>systemctl restart vsftpd</p>
+			</li>
+		</ul>	
+	</article>
+</body>
+</html>

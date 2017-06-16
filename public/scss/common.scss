@@ -9,6 +9,7 @@ body {
 		>li {
 			width: 300px;
 			padding: 15px;
+			border-radius: 2px;
 			border-top: 1px solid rgba(255,255,255,.2);
 		}	
 	}
@@ -22,6 +23,9 @@ body {
 		}
 
 		.article-list{
+			li {
+				padding: 10px;
+			}
 			a {
 				display: block;
 				text-indent: 14px;
@@ -34,8 +38,16 @@ body {
 }
 
 .container {
-	width: 960px;
-	margin:0px auto;
+	position: fixed;
+	background: #fff;
+	overflow: hidden;
+	top:0.8em;
+	left: 350px;
+	right: 10px;
+	bottom: 0;
+	width: auto;
+	border-radius: 20px;
+	padding: 20px;
 }
 
 .nav-toggle {
@@ -50,6 +62,10 @@ body {
 	}
 }
 
+.main {
+	
+}
+
 @media (max-width: 648px) {
 	#nav {
 		>ul{
@@ -57,5 +73,13 @@ body {
 				width: 100%;
 			}	
 		}
+	}
+	.container {
+		position: relative;
+		left: 0;
+		bottom: 0;
+		height: 100%;
+		overflow: hidden;
+		border-radius: 0;
 	}
 }

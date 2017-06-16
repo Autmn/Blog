@@ -12,7 +12,7 @@
 <body>
 	<div id="nav">
 		<ul>
-			<li><a href="#" title="new">》最新内容</a></li>
+			<li><a href="article/html/new.html" title="new" target="main">》最新内容</a></li>
 			<li><a href="#" title="html">》HTML</a>
 				<ul class="article-list">
 					<li><a href="#">html5 新增的14项特性</a></li>
@@ -20,12 +20,20 @@
 			</li>
 			<li><a href="#" title="css">》CSS</a>
 				<ul class="article-list">
-					<li></li>
+					<li><a href="article/css/priorityOfCss.html" title="css样式优先级计算" target="main">css样式优先级计算</a></li>
 				</ul>
 			</li>
 			<li><a href="#" title="javascript">》JavaScript</a>
 				<ul class="article-list">
-					<li></li>
+					<li><a href="article/javascript/jsStrictMode.html" title="js严格模式下的九条规则" target="main">js严格模式下的九条规则</a></li>
+					<li><a href="article/javascript/bubbleAndQuickAbost.html" title="冒泡与快速排序法" target="main">冒泡与快速排序法</a></li>
+				</ul>
+			</li>
+			<li><a href="#" title="javascript">》OTHER</a>
+				<ul class="article-list">
+					<li><a href="article/other/git.html" title="git常用命令" target="main">git常用命令</a></li>
+					<li><a href="article/other/installVftp.html" title="搭建Vftp" target="main">CentOS搭建vsftp</a></li>
+					<li><a href="article/other/installMongodb.html" title="搭建Vftp" target="main">CentOS安装mongodb</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -36,9 +44,8 @@
 			<span></span>
 			<span></span>
 		</a>
-		<div id="article">
-			
-		</div>
+		<iframe name="main" src="article/html/new.html" frameborder="0" width="100%" height="100%"></iframe>
+		<!-- <iframe name="main" src="article/javascript/bubbleAndQuickAbost.html" frameborder="0" width="100%" height="100%"></iframe> -->
 	</div>
 	<script>
 	  var navigation = responsiveNav("#nav", { // Selector: The ID of the wrapper

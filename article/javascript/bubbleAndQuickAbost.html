@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>冒泡与快速排序法</title>
+</head>
+<body>
+	<article>
+	<h2>冒泡法</h2>
+	<code>
+	<pre>
+	function bubbleSort(arr) {
+		for (var i = 0; i < arr.length-1; i++) {
+			for (var j = i+1; j < arr.length; j++) {
+				if (arr[i] > arr [j]) {
+					var temp  = arr[i];
+					arr[i] = arr[j];
+					arr[j] = temp;
+				}
+			}
+		}
+	}
+	</pre>
+	</code>
+	<h2>快速排序1</h2>
+	<code>
+	<pre>
+	function quickSort(arr) {
+		var arrLen = arr.length;
+		if (arrLen <= 1) {
+			return arr;   //如果数组只有1个或0个则返回数组
+		}
+		var nonius = arr >> 1;   //arr >> 1 相当于 Math.floor(arrLen/2)
+		var middleVal = arr.splice(nonius,1)[0];
+		var leftArr = [];
+		var rightArr = [];
+
+		for (var i = 0; i < arr.length; i++) {
+			if (arr[i] < middleVal) {
+				leftArr.push(arr[i]);	
+			} else {
+				rightArr.push(arr[i]);
+			}
+		}
+		return quickSort(leftArr).concat([middleVal],quickSort(rightArr));
+	}
+	</pre>
+	</code>
+	<h2>快速排序2</h2>
+	<code>
+	<pre>
+	Array.prototype.swap = function(i, j) {  
+				var temp = this[i];  
+				this[i] = this[j];  
+				this[j] = temp;  
+	} 
+	Array.prototype.quickSort = function(s, e) {  
+		if (s == null) 
+			s = 0;  
+		if (e == null) 
+			e = this.length - 1;  
+		if (s >= e) 
+			return;  
+		this.swap((s + e) >> 1, e);  
+		var index = s - 1;  
+		for (var i = s; i <= e; ++i)   
+			if (this[i] <= this[e]) this.swap(i, ++index);  
+		this.quickSort(s, index - 1);  
+		this.quickSort(index + 1, e);  
+	} 
+
+	</pre>
+	</code>
+	</article>
+	<footer>
+		<h4>学习参考资料</h4>
+		<p>阮一峰的网络日志--快速排序:<a href="http://www.ruanyifeng.com/blog/2011/04/quicksort_in_javascript.html" target="_blank">http://www.ruanyifeng.com/blog/2011/04/quicksort_in_javascript.html</a></p>
+		<p>各种排序算法及其测试：<a href="https://github.com/Autmn/twobinSort" target="_blank">https://github.com/Autmn/twobinSort</a></p>
+	</footer>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>git常用命令</title>
+</head>
+<body>
+	<h2>git常用命令</h2>
+	<article>
+		<ul>
+			<li>git init
+				<p>git 仓库初始化</p>
+			</li>
+			<li>git status
+				<p>查看git的状态，可以看那些新增文件或者是已经修改过的文件没有add到本地仓库</p>
+			</li>
+			<li>git add &ltfile&gt 
+				<p>将某个文件或文件夹添加到本地仓库</p>
+			</li>
+			<li>git rm --cached &ltfile&gt 
+				<p>将某个文件或文件夹从本地仓库删除</p>
+			</li>
+			<li>git reset HEAD &ltfile&gt 
+				<p>对已经add到本地仓库的某个修改过的文件或文件夹，恢复到add之前（即撤销修改文件的add）</p>
+			</li>
+			<li>git rm --cached &ltfile&gt 
+				<p>将某个文件或文件夹从本地仓库删除</p>
+			</li>
+			<li>git commit -m "引号内写此次提交的简述"
+				<p>将所有add的内容提交到本地仓库，并简述此次提交，方便以后的回滚</p>
+			</li>
+			<li>git log
+				<p>查看git提交的日记</p>
+			</li>
+			<li>git remote add <远程仓库名> <远程仓库地址>
+				<p>添加一个远程仓库</p>
+			</li>
+			<li>git remote add <远程仓库名> <远程仓库地址>
+				<p>添加一个远程仓库</p>
+			</li>
+			<li>git push -u <远程仓库名> <本地分支名>
+				<p>将本地仓库的内容提交到远程仓库，第一次push时需要加 -u <远程仓库名> <本地分支名>，下次提交可以忽略掉</p>
+			</li>
+			<li>git pull <远程仓库名> <本地分支名>
+				<p>从远程仓库pull最新的内容（比如有其他伙伴提交了新内容）到本地</p>
+			</li>
+			<li>git diff HEAD
+				<p>比较两个版本的差异</p>
+			</li>
+			<li>git branch <分支名>
+				<p>创建一个的分支</p>
+			</li>
+			<li>git checkout <分支名>
+				<p>切换到某个分支</p>
+			</li>
+			<li>git merge <分支名>
+				<p>合并分支</p>
+			</li>
+			<li>git branch -d <分支名>
+				<p>删除分支</p>
+			</li>
+		</ul>	
+	</article>
+	<footer>
+		<h2>git学习参考</h2>
+		<p>15分钟学会git常用命令：<a href="https://try.github.io/levels/1/challenges/1" title="">点击学习</a></p>
+		<p>廖雪峰的git教程：<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" title="" target="_blank">点击进入</a></p>
+	</footer>
+</body>
+</html>

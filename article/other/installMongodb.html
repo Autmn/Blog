@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<article>
+		<h2>CentOS安装mongodb</h2>
+		<ul>
+			<li>查看yum 有没有mongoDB的包信息
+				<p>yum info mongo-10gen<br>
+					如果显示：Error:no matching Packages to list 则为yum源添加包含MongoDB的相关资源
+				</p>
+			</li>
+			<li>添加一个新的文件
+				<p>vim /etc/yum.repos.d/mongodb-org-3.4.repo</p>
+			</li>
+			<li>在此文件中添加如下内容
+				<p>
+					[mongodb-org-3.4]<br>
+					name=MongoDB Repository<br>
+					baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.4/x86_64/<br>
+					gpgcheck=1<br>
+					enabled=1<br>
+					gpgkey=https://www.mongodb.org/static/pgp/server-3.4.asc<br>
+				</p>
+			</li>
+			<li>使用yum安装mongodb
+				<p>yum install -y mongodb-org</p>
+			</li>
+			<li>启动mongodb
+				<p>/bin/systemctl start  mongod.service</p>
+			</li>
+		</ul>
+		<h4>其它</h4>
+		<P>大页内存(HugePages)在通用程序优化中的应用 -->参考http://blog.csdn.net/yutianzuijin/article/details/41912871</P>
+		<h4>关闭大页内存</h4>
+		<p>
+			echo never >>  /sys/kernel/mm/transparent_hugepage/enabled<br>
+			echo never >>  /sys/kernel/mm/transparent_hugepage/defrag
+		</p>
+		<h4>重启monogodb</h4>
+		<p>
+			/bin/systemctl stop  mongod.service<br>
+			/bin/systemctl start  mongod.service
+		</p>
+	</article>
+</body>
+</html>
