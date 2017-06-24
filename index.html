@@ -62,6 +62,18 @@
 	    open: function(){}, // Function: Open callback
 	    close: function(){} // Function: Close callback
 	  });
+	  window.onload = function () {
+	  	var height =document.documentElement.clientHeight;
+	    document.querySelector(".container").style.height = height + "px";
+	  }
+	  window.onresize = function() {
+	          var timer = null;
+	          if (timer){clearTimeout(timer)}
+	          timer = setTimeout(function(){
+	          	var height =document.documentElement.clientHeight;
+	          	document.querySelector(".container").style.height = height + "px";
+	          },20);
+	      };
 	</script>
 </body>
 </html>
