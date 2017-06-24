@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原生js插件编写</title>
+</head>
+<body>
+<pre>
+<h2>js插件编写--遮罩层示例</h2>
+&ltdiv id="mask"&gt点击打开遮罩层&lt/div&gt
+&ltscript type="text/javascript"&gt
+	(function (window, document) {
+		var Mask = function (switchDom, options) {
+			if (! (this instanceof Mask)) { 
+				return new Mask(switchDom,options);
+			}
+			if ((typeof switchDom) === "string") {
+				this.switchDom = document.querySelector(switchDom);
+			} else {
+				this.switchDom = switchDom;
+			}
+
+			var mask = document.createElement("div");
+
+			mask.style.cssText = "display:none; position:absolute; top:0; left:0; z-index:9999; width:100%; height:100%; background-color:rgba(0,0,0,.5);";
+			this.mask = mask;
+			this.init();
+		};
+		Mask.prototype = {
+			init: function () {
+				var _this = this;
+				this.addEvent(this.switchDom,"click",function () {
+					document.body.appendChild(_this.mask);
+					_this.mask.style.display = "block";
+				})
+				this.addEvent(this.mask,"click",function () {
+					this.style.display = "none";
+				})
+
+			},
+			addEvent: function (obj, ev, fn) {
+				if (obj.attachEvent) {
+					obj.attachEvent("on" + ev,fn);
+				} else {
+					obj.addEventListener(ev,fn,false);
+				}
+			}
+		};
+	//将方法挂到window对象
+	window.popMask = Mask;  
+	})(window,document);
+	popMask("#mask");
+&lt/script&gt
+</pre>
+</body>
+</html>

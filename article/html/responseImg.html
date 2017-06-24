@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>响应式图像</title>
+	<style type="text/css">
+		pre {
+			font-size: 14px;
+		}
+		.child-titel {
+			color:#EA4E4E;
+		}
+	</style>
+</head>
+<body>
+	<article>
+		
+				<h2>响应式图像</h2> 
+				<p class="child-titel">在html5.1中我们可以通过srcset属性进行响应式图片的设置。它会根据当前用户浏览器的设备，及网络情况，选择相应的图片进行显示</p>
+<pre>eg.1-1
+&ltimg src="low-res.jpg" srcset="
+low-res.jpg 1x, 
+medium-res.jpg 2x, 
+high-res.jpg 3x"
+&gt
+</pre>
+				<p>
+					eg.1-1中的x 修饰符来描述每一个图片的像素比例。 例如用户的像素比例等于3，就会显示 high-res 这张图片
+				</p>
+<pre>eg.1-2
+&ltimg src="low-res.jpg" srcset="
+  low-res.jpg 500w, 
+  medium-res.jpg 1000w, 
+  high-res.jpg 1600w"
+&gt
+</pre>
+				<p>
+					eg.1-2中的 w 修饰符来指定不同尺寸大小的图片。 high-res 图片被定义成在宽度为 1600px 时显示
+				</p>
+				<P class="child-titel">
+					在html5.1中可以通过srcset与size属性的结合设置，来针对不同的屏幕尺寸，显示不同的图片
+				</P>
+<pre>eg.1-3
+&ltimg src="low-res.jpg" sizes="(max-width: 25em) 60vw, 100vw" 
+  srcset="low-res.jpg 500w, 
+  medium-res.jpg 1000w, 
+  high-res.jpg 1600w"
+&gt
+</pre>
+				<P>
+					eg.1-3中sizes 属性定义了在视窗大于 25 em 时图像宽度为视窗宽度的 100%，或者在小于等于 25em 时为视图宽度的 60%。
+				</P>
+				<P class="child-titel">
+					picture 元素让你可以针对不同的屏幕尺寸声明图片。这个可以通过用 &ltpicture&gt 元素封装 &ltimg&gt ，并且描述多个 &ltsource&gt 子元素来实现。
+				</P>
+<pre>eg.1-4
+&ltpicture&gt
+  &ltsource media="(max-width: 25em)" srcset="
+    small/low-res.jpg 1x,
+    small/medium-res.jpg 2x, 
+    small/high-res.jpg 3x
+  "&gt
+  &ltsource media="(max-width: 60em)" srcset="
+    large/low-res.jpg 1x,
+    large/medium-res.jpg 2x, 
+    large/high-res.jpg 3x
+  "&gt
+ 
+  &ltimg src="default/medium-res.jpg"&gt
+&lt/picture&gt
+</pre>
+			
+		
+	</article>
+</body>
+</html>
